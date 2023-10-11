@@ -1,3 +1,7 @@
 # cinema_wisdom
 
-A new Flutter project.
+# Dev
+
+1. Rename .env.template to .env
+2. Change environment variables (TMDB)
+
