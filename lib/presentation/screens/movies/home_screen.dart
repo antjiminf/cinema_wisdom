@@ -1,5 +1,3 @@
-import 'package:cinema_wisdom/presentation/providers/movies/movies_providers.dart';
-import 'package:cinema_wisdom/presentation/providers/movies/movies_slider_provider.dart';
 import 'package:cinema_wisdom/presentation/providers/providers.dart';
 import 'package:cinema_wisdom/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
