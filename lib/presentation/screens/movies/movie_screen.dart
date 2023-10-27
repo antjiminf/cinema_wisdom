@@ -177,23 +177,42 @@ class _MovieDetails extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ...movie.genreIds.map(
-                (gender) => Container(
+        SizedBox(
+          height: 100,
+          child: ListView.builder(
+            padding: const EdgeInsets.only(left: 20),
+            scrollDirection: Axis.horizontal,
+            itemCount: movie.genreIds.length,
+            itemBuilder: (context, index) {
+              return FadeInRight(
+                duration: const Duration(seconds: 1),
+                child: Container(
                   margin: const EdgeInsets.only(right: 8),
                   child: Chip(
-                    label: Text(gender),
+                    label: Text(movie.genreIds[index]),
                     shape: BeveledRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                   ),
                 ),
-              ),
-            ],
+              );
+            },
           ),
+          // child: Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     // ...movie.genreIds.map(
+          //     //   (gender) => Container(
+          //     //     margin: const EdgeInsets.only(right: 8),
+          //     //     child: Chip(
+          //     //       label: Text(gender),
+          //     //       shape: BeveledRectangleBorder(
+          //     //           borderRadius: BorderRadius.circular(20)),
+          //     //     ),
+          //     //   ),
+          //     // ),
+
+          //   ],
+          // ),
         ),
         _ActorsByMovie(movie.id.toString()),
 
