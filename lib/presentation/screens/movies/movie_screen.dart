@@ -38,18 +38,20 @@ class MovieScreenState extends ConsumerState<MovieScreen> {
       );
     }
 
-    return Scaffold(
-      body: CustomScrollView(
-        physics: const ClampingScrollPhysics(),
-        slivers: [
-          _CustomSliverAppBar(movie: movie),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => _MovieDetails(movie: movie),
-              childCount: 1,
+    return FadeInRight(
+      child: Scaffold(
+        body: CustomScrollView(
+          physics: const ClampingScrollPhysics(),
+          slivers: [
+            _CustomSliverAppBar(movie: movie),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => _MovieDetails(movie: movie),
+                childCount: 1,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -78,7 +80,7 @@ class _CustomSliverAppBar extends StatelessWidget {
                 fit: BoxFit.cover,
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress != null) return const SizedBox();
-                  return FadeIn(child: child);
+                  return child;
                 },
               ),
             ),
