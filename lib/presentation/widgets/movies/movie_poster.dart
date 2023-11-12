@@ -14,7 +14,8 @@ class MoviePoster extends StatelessWidget {
       onTap: () => context.push('/home/0/movie/${movie.id}'),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: FadeIn(
+        child: FadeInUp(
+          duration: const Duration(seconds: 1),
           child: Image.network(
             movie.posterPath,
           ),
