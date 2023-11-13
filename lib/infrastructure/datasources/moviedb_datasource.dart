@@ -1,9 +1,12 @@
 import 'package:cinema_wisdom/config/constants/environment.dart';
 import 'package:cinema_wisdom/domain/datasources/movies_datasource.dart';
 import 'package:cinema_wisdom/domain/entities/movie.dart';
+import 'package:cinema_wisdom/domain/entities/video.dart';
 import 'package:cinema_wisdom/infrastructure/mappers/movie_mapper.dart';
+import 'package:cinema_wisdom/infrastructure/mappers/video_mapper.dart';
 import 'package:cinema_wisdom/infrastructure/models/moviedb/movie_details.dart';
 import 'package:cinema_wisdom/infrastructure/models/moviedb/moviedb_response.dart';
+import 'package:cinema_wisdom/infrastructure/models/moviedb/moviedb_videos.dart';
 import 'package:dio/dio.dart';
 
 class MovieDbDatasource extends MovieDatasource {
@@ -80,5 +83,25 @@ class MovieDbDatasource extends MovieDatasource {
       queryParameters: {'query': query},
     );
     return _jsonToMovies(response.data);
+  }
+
+  @override
+  Future<List<Movie>> getSimilarMovies(int movieId) async {
+    final response = await dio.get('/movie/$movieId/similar');
+    return _jsonToMovies(response.data);
+  }
+
+  @override
+  Future<List<Video>> getYoutubeVideosById(int movieId) async {
+    final response = await dio.get('/movie/$movieId/videos');
+    final videosResponse = MovieDbVideosResponse.fromJson(response.data);
+    final videos = <Video>[];
+
+    for (var movieVideo in videosResponse.results) {
+      if (movieVideo.site == 'YouTube') {
+        videos.add(VideoMapper.moviedbVideoToEntity(movieVideo));
+      }
+    }
+    return videos;
   }
 }
