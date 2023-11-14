@@ -8,9 +8,12 @@ final appRouter = GoRouter(
       path: '/home/:page',
       name: HomeScreen.name,
       builder: (context, state) {
-        final pageIndex = state.pathParameters['page'] ?? '0';
+        final pageIndex = int.parse(state.pathParameters['page'] ?? '0');
         //Podría validar el número en caso de que sea web
-        return HomeScreen(pageIndex: int.parse(pageIndex));
+        // if (HomeScreen.viewRoutes.length <= pageIndex) {
+        //   return HomeScreen(pageIndex: pageIndex);
+        // }
+        return HomeScreen(pageIndex: pageIndex);
       },
       routes: [
         GoRoute(
