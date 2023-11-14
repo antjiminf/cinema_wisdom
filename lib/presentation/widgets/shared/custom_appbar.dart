@@ -17,7 +17,7 @@ class CustomAppbar extends ConsumerWidget {
     return SafeArea(
       bottom: false,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: SizedBox(
           width: double.infinity,
           child: Row(
@@ -26,9 +26,7 @@ class CustomAppbar extends ConsumerWidget {
                 Icons.movie_outlined,
                 color: colors.primary,
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(width: 5),
               Text(
                 'Cinema Wisdom',
                 style: titleStyle,
@@ -47,10 +45,13 @@ class CustomAppbar extends ConsumerWidget {
                         searchMovies: ref
                             .read(searchedMoviesProvider.notifier)
                             .searchMoviesByQuery),
-                  ).then((movie) {
-                    if (movie != null)
-                      context.push('/home/0/movie/${movie.id}');
-                  });
+                  ).then(
+                    (movie) {
+                      if (movie != null) {
+                        context.push('/home/0/movie/${movie.id}');
+                      }
+                    },
+                  );
                 },
                 icon: const Icon(Icons.search),
               ),
