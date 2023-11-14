@@ -10,14 +10,16 @@ class MoviePoster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => context.push('/home/0/movie/${movie.id}'),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: FadeInUp(
-          duration: const Duration(seconds: 1),
-          child: Image.network(
-            movie.posterPath,
+    return FadeInUp(
+      child: GestureDetector(
+        onTap: () => context.push('/home/0/movie/${movie.id}'),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: FadeInImage(
+            height: 200,
+            fit: BoxFit.cover,
+            placeholder: const AssetImage('assets/loaders/bottle-loader.gif'),
+            image: NetworkImage(movie.posterPath),
           ),
         ),
       ),
