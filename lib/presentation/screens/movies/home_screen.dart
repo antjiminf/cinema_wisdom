@@ -1,28 +1,66 @@
+import 'package:cinema_wisdom/presentation/views/movies/popular_view.dart';
 import 'package:flutter/material.dart';
 import 'package:cinema_wisdom/presentation/widgets/widgets.dart';
 
 import 'package:cinema_wisdom/presentation/views/views.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.pageIndex});
 
   static const String name = 'home-screen';
   final int pageIndex;
 
-  final viewRoutes = const <Widget>[
+  static const viewRoutes = <Widget>[
     HomeView(),
-    SizedBox(),
+    PopularView(),
     FavoritesView(),
   ];
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(
-        index: pageIndex,
-        children: viewRoutes,
-      ),
-      bottomNavigationBar: CustomBottomNavigationBar(selectedIndex: pageIndex),
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen>
+    with AutomaticKeepAliveClientMixin {
+  late PageController pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(
+      keepPage: true,
     );
   }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+
+    if (pageController.hasClients) {
+      pageController.animateToPage(
+        widget.pageIndex,
+        curve: Curves.easeInOut,
+        duration: const Duration(milliseconds: 200),
+      );
+    }
+
+    return Scaffold(
+      body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: pageController,
+        children: HomeScreen.viewRoutes,
+      ),
+      bottomNavigationBar:
+          CustomBottomNavigationBar(selectedIndex: widget.pageIndex),
+    );
+  }
+
+  @override
+  bool get wantKeepAlive => true;
 }
