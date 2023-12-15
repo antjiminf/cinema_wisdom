@@ -1,4 +1,4 @@
-package com.example.cinema_wisdom
+package com.antoniojimenez.cinemawisdom
 
 import io.flutter.embedding.android.FlutterActivity
 
