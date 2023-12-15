@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:cinema_wisdom/shared/shared.dart';
 import 'package:cinema_wisdom/presentation/widgets/widgets.dart';
 import 'package:cinema_wisdom/presentation/providers/providers.dart';
 
@@ -34,9 +35,10 @@ class HomeViewState extends ConsumerState<HomeView>
     final initialLoading = ref.watch(initialLoadingProvider);
     if (initialLoading) return const FullScreenLoader();
 
+    NativeSplashServiceImpl().remove();
+
     final movies = ref.watch(nowPlayingMoviesProvider);
     final slideMovies = ref.watch(movieSliderProvider);
-    // final popularMovies = ref.watch(popularMoviesProvider);
     final upcomingMovies = ref.watch(upcomingMoviesProvider);
     final topRatedMovies = ref.watch(topRatedMoviesProvider);
 
