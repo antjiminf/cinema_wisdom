@@ -18,3 +18,10 @@ Change app icon:
 Change splash screen:
 
 `dart run flutter_native_splash:create`
+
+
+# Android AAB
+
+```
+flutter build appbundle
+```
