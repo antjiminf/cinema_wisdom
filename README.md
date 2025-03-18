@@ -1,27 +1,71 @@
-# cinema_wisdom
+# 🎬 Cinema Wisdom
 
-# Dev
+🌍 Available in: [Español](README.es.md)
 
-1. Rename .env.template to .env
-2. Change environment variables (TMDB)
-3. In order to safely modify any entity in the domain layer 'flutter pub run build_runner build' must be executed afterwards.
+Cinema Wisdom is a Flutter application that provides users with detailed movie information, including data sourced from The Movie Database (TMDB). The app allows users to explore movies, get specific details, and manage personal preferences.
 
-# Prod
-Change app name:
+## 🚀 Main Features
 
-`flutter pub run change_app_package_name:main com.new.package.name`
+- **Movie Exploration**: Browse through a wide selection of movies available in the TMDB database.
+- **Movie Details**: Access detailed information about each movie, including synopsis, cast, and more.
+- **Favorites Management**: Save your favorite movies for quick access in the future.
+- **Advanced Search**: Use filters and search criteria to find movies that match your interests.
 
-Change app icon:
+## 🛠️ System Requirements
 
-`flutter pub run flutter_launcher_icons`
+- **Flutter**: Ensure you have the latest version of Flutter installed. You can check your current version by running:
 
-Change splash screen:
+  ```bash
+  flutter --version
+  ```
 
-`dart run flutter_native_splash:create`
+- **Dependencies**: The project's dependencies are listed in the `pubspec.yaml` file. Make sure to install all required dependencies before running the application.
 
+## 📦 Installation
 
-# Android AAB
+1. **Clone the repository** to your local machine:
 
-```
-flutter build appbundle
-```
+   ```bash
+   git clone https://github.com/antjiminf/cinema_wisdom.git
+   ```
+
+2. **Navigate to the project directory**:
+
+   ```bash
+   cd cinema_wisdom
+   ```
+
+3. **Set up environment variables**:
+   - Rename `.env.template` to `.env`.
+   - Update the `.env` file with your own API keys and configurations, especially the TMDB key.
+
+4. **Install dependencies**:
+
+   ```bash
+   flutter pub get
+   ```
+
+5. **Generate necessary code**:
+   - After modifying any entity in the domain layer, run:
+
+   ```bash 
+   flutter pub run build_runner build
+   ```
+
+## 🚀 Running in Development Mode
+
+To run the application in development mode:
+
+1. **Start the application**:
+
+   ```bash 
+   flutter run
+   ```
+   This will launch the app on the connected device or emulator.
+
+## 📱 Internal Testing on Google Play
+
+Cinema Wisdom is available for internal testing via **Google Play Console**.  
+If you would like to try the app before its official release, please send me an email with your Google account so I can add you to the tester list.
+
+📩 **Contact Email**: [Here!](mailto:antoniojimenezinfante@gmail.com)
