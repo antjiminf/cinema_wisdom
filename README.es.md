@@ -69,4 +69,4 @@ Para ejecutar la aplicación en modo desarrollo:
 Cinema Wisdom está disponible en una prueba interna a través de **Google Play Console**.  
 Si deseas probar la aplicación antes de su lanzamiento oficial, envíame un correo electrónico con tu cuenta de Google para que te agregue a la lista de testers.  
 
-📩 **Correo de contacto**: [Aquí!](mailto:antoniojimenezinfante@gmail.com)
+📩 **Correo de contacto**: [Aquí!](mailto:antoniojimenezinfante@gmail.com?subject=Unirme%20a%20la%20prueba%20interna%20de%20Cinema%20Wisdom&body=Quiero%20unirme%20a%20la%20prueba%20interna%20de%20Cinema%20Wisdom.%20Esta%20es%20mi%20cuenta%20de%20Google:%0A%0A%5Bescribe%20aquí%20el%20correo%20de%20tu%20cuenta%20de%20Google%20que%20usas%20en%20la%20Play%20Store%5D)
